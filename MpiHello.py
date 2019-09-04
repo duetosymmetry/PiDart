@@ -18,33 +18,5 @@ rootProc = 0
 sum = comm.reduce(x, op=MPI.SUM, root=rootProc)
 
 if rank == rootProc:
-  print sum
-
-print(str(hits)+" hits on processor "+str(rank)+" out of "+str(throws)+" throws.")
-
-hits = hits // size
-
-
-hits = 0
-throws = 1e7 // size
-
-i = 0
-while i < throws:
-# … rest of program
-
-
-print(str(hits)+" hits on processor "+str(rank)+" out of "+str(throws)+" throws.")
-
-throwsAllProcessors = throws * size
-hitsAllProcessors = comm.allreduce(hits, op=MPI.SUM)
-if rank == 0:
-    print(str(hitsAllProcessors)+" hits on all processors, with "+str(throwsAllProcessors)+" throws.")
-
-    pi = 4.0 * float(hitsAllProcessors) / float(throwsAllProcessors)
-    print(pi)
-
-import time
-start = time.time()
-end = time.time()
-print("Run in "+str(end-start)+" seconds.")
+  print(sum)
 
